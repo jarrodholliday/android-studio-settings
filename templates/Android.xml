@@ -1,55 +1,10 @@
 <templateSet group="Android">
-  <template name="prefSetup" value="public static void set$functionName$($prefType$ $prefName$) {&#10;    editor.put$prefType_dupe$(&quot;$prefName$&quot;, $prefName$);&#10;    editor.commit();&#10;}&#10;&#10;public static $prefType$ get$functionName$() {&#10;    return sharedPreferences.get$prefType_dupe$(&quot;$prefName$&quot;, $default$);&#10;}" description="Setup getter and setter for shared preferences value" toReformat="false" toShortenFQNames="true">
+  <template name="prefSetup" value="public static void set$functionName$($prefType$ $settingName$) {&#10;    editor.put$prefType_dupe$(&quot;$settingName$&quot;, $settingName$);&#10;    editor.commit();&#10;}&#10;&#10;public static $prefType$ get$functionName$() {&#10;    return sharedPreferences.get$prefType_dupe$(&quot;$settingName$&quot;, $defReturn$);&#10;}&#10;" description="Setup of setter and getter for something in the shared prefs" toReformat="false" toShortenFQNames="true">
     <variable name="functionName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="prefType" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="prefName" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="prefType_dupe" expression="capitalize(String)" defaultValue="" alwaysStopAt="true" />
-    <variable name="default" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="HTML_TEXT" value="false" />
-      <option name="HTML" value="false" />
-      <option name="XSL_TEXT" value="false" />
-      <option name="XML" value="false" />
-      <option name="XML_TEXT" value="false" />
-      <option name="JSON" value="false" />
-      <option name="JAVA_CODE" value="true" />
-      <option name="JAVA_STATEMENT" value="true" />
-      <option name="JAVA_EXPRESSION" value="true" />
-      <option name="JAVA_DECLARATION" value="true" />
-      <option name="JAVA_COMMENT" value="true" />
-      <option name="JAVA_STRING" value="true" />
-      <option name="COMPLETION" value="true" />
-      <option name="GROOVY" value="false" />
-      <option name="GROOVY_EXPRESSION" value="false" />
-      <option name="GROOVY_STATEMENT" value="false" />
-      <option name="GROOVY_DECLARATION" value="false" />
-      <option name="c" value="false" />
-      <option name="OC_DECLARATION_C" value="false" />
-      <option name="OC_STATEMENT_C" value="false" />
-      <option name="OC_EXPRESSION_C" value="false" />
-      <option name="cpp" value="false" />
-      <option name="OC_DECLARATION_CPP" value="false" />
-      <option name="OC_STATEMENT_CPP" value="false" />
-      <option name="OC_EXPRESSION_CPP" value="false" />
-      <option name="OTHER" value="false" />
-    </context>
-  </template>
-  <template name="retrofitResponse" value="Logger.i(&quot;$callingMethod$:%s&quot;, response.message());&#10;if(response.body() != null) {&#10;    try {&#10;        String responseString = response.body().string();&#10;        JSONObject responseObject = new JSONObject(responseString);&#10;        if(responseObject.has(&quot;$END$&quot;)) {&#10;&#10;        }&#10;    } catch (IOException | JSONException e) {&#10;        Logger.e(e);&#10;    }&#10;}&#10;if (response.errorBody() != null) {&#10;    try {&#10;        Logger.e(response.code() + &quot;: &quot; + response.errorBody().string());&#10;    } catch (IOException e) {&#10;        // long hair, don't care&#10;    }&#10;}" description="Boilerplate for a typical retrofit response" toReformat="false" toShortenFQNames="true">
-    <variable name="callingMethod" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_CODE" value="true" />
-      <option name="JAVA_STATEMENT" value="true" />
-      <option name="JAVA_EXPRESSION" value="true" />
-      <option name="JAVA_DECLARATION" value="true" />
-      <option name="JAVA_COMMENT" value="true" />
-      <option name="JAVA_STRING" value="true" />
-      <option name="COMPLETION" value="true" />
-    </context>
-  </template>
-  <template name="respObjMapper" value="$className$[] $variableName$ = new ObjectMapper().readValue(responseObject.get($objectToFetch$).toString(), $className$[].class);" description="Object mapper for retrofit response" toReformat="false" toShortenFQNames="true">
-    <variable name="className" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="variableName" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="objectToFetch" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="settingName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="prefType_dupe" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="defReturn" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
       <option name="JAVA_STATEMENT" value="true" />
